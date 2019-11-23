@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Jad from "../imgs/TzTok-Jad.png";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 export default function LandingHeader() {
   return (
@@ -18,7 +19,7 @@ export default function LandingHeader() {
         style={{ textDecoration: "none", color: "white" }}
       >
         <Button size="large" variant="contained" color="primary">
-          Click Here
+          Click Here <ArrowForwardIcon style={{ marginLeft: "12px" }} />
         </Button>
       </Link>
     </div>

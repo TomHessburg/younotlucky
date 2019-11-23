@@ -4,6 +4,8 @@ import db from "../db.json";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 
+import { withRouter } from "react-router-dom";
+
 import styled from "styled-components";
 
 function SearchMonsters(props) {
@@ -40,7 +42,14 @@ function SearchMonsters(props) {
           }}
         />
         <br />
-        <Button size="medium" variant="contained" color="secondary">
+        <Button
+          onClick={e => {
+            props.history.push("/choose_item");
+          }}
+          size="medium"
+          variant="contained"
+          color="secondary"
+        >
           select monster
         </Button>
       </form>
@@ -76,7 +85,7 @@ function SearchMonsters(props) {
   );
 }
 
-export default SearchMonsters;
+export default withRouter(SearchMonsters);
 
 const Wrapper = styled.div`
   width: 400px;
