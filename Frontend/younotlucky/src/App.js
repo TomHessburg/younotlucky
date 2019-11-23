@@ -6,35 +6,35 @@ function App() {
   const [monster, setMonster] = useState("");
   const [results, setResults] = useState([]);
 
-  const handelSubmit = e => {
-    // Ill make this prettier later please dont judge me xD haha
-
-    e.preventDefault();
-    const keys = Object.keys(db);
-
-    const refinedResults = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      const curMonster = db[keys[i]];
-      if (curMonster.name.toLowerCase().includes(monster.toLowerCase())) {
-        refinedResults.push(curMonster);
+  useEffect(() => {
+    if (monster.length > 1) {
+      // e.preventDefault();
+      const keys = Object.keys(db);
+      const refinedResults = [];
+      for (let i = 0; i < keys.length; i++) {
+        const curMonster = db[keys[i]];
+        if (curMonster.name.toLowerCase().includes(monster.toLowerCase())) {
+          refinedResults.push(curMonster);
+        }
       }
+      setResults(refinedResults);
+    } else {
+      setResults([]);
     }
-    console.log(refinedResults);
-    setResults(refinedResults);
-  };
+  }, [monster]);
 
   return (
     <div className="App">
       <h1>hi</h1>
-      <form onSubmit={handelSubmit}>
+      <form>
         <input
           type="text"
           placeholder="monster name..."
           value={monster}
-          onChange={e => setMonster(e.target.value)}
+          onChange={e => {
+            setMonster(e.target.value);
+          }}
         />
-        <button>submit</button>
       </form>
       <div
         style={{
