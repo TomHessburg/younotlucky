@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar>{/* <p>younolucky</p> */}</NavBar>
       <Route exact path="/" component={LandingHeader} />
 
       <Route
@@ -68,9 +68,16 @@ function App() {
 export default App;
 
 const NavBar = styled.div`
+  display: flex;
+  align-items: start;
+  padding: 8px 24px;
   width: 100%;
   height: 48px;
   background: #401722;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  p {
+    color: white;
+  }
 `;

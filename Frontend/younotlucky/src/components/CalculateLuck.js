@@ -11,13 +11,18 @@ function CalculateLuck(props) {
   const [successes, setSuccesses] = useState(1);
 
   const calculateLuck = () => {
+    if (Number(trials) < 0) {
+      alert("num of trials must be greater than or equal to 0");
+      return;
+    }
     // get drop rate in decimal
     const splitRate = selectedItem.rarity.split("/");
     const numerator = Number(splitRate[0]);
     const denomenator = Number(splitRate[1]);
     const chanceInDecimal = Number(numerator / denomenator);
 
-    const calculatedDropChange = 1 - Math.pow(1 - chanceInDecimal, trials);
+    const calculatedDropChange =
+      1 - Math.pow(1 - chanceInDecimal, Number(trials));
 
     alert(`${calculatedDropChange * 100} %`);
   };
@@ -36,7 +41,7 @@ function CalculateLuck(props) {
           type="number"
           value={trials}
           onChange={e => {
-            setTrials(Number(e.target.value));
+            setTrials(e.target.value);
           }}
         />
         <br />
@@ -47,7 +52,7 @@ function CalculateLuck(props) {
           id="successes"
           value={successes}
           onChange={e => {
-            setSuccesses(Number(e.target.value));
+            setSuccesses(e.target.value);
           }}
         /> */}
         <br />
@@ -85,7 +90,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 48px;
   padding: 16px;
 
   i {

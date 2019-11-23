@@ -94,7 +94,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 48px;
   padding: 16px;
 
   form {
