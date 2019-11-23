@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import db from "../db.json";
 
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+
+import styled from "styled-components";
 
 function SearchMonsters(props) {
   const [monster, setMonster] = useState("");
@@ -25,10 +28,10 @@ function SearchMonsters(props) {
   }, [monster]);
 
   return (
-    <div className="App">
-      <h3>Search the OSRS Bestiary</h3>
+    <Wrapper className="App">
+      <h2>Search the OSRS Bestiary</h2>
       <form>
-        <input
+        <MainInput
           type="text"
           placeholder="monster name..."
           value={monster}
@@ -36,6 +39,10 @@ function SearchMonsters(props) {
             setMonster(e.target.value);
           }}
         />
+        <br />
+        <Button size="medium" variant="contained" color="secondary">
+          select monster
+        </Button>
       </form>
       <div
         style={{
@@ -54,7 +61,7 @@ function SearchMonsters(props) {
             >
               <Checkbox
                 checked={
-                  props.selectedMonster.name === result.name ? true : false
+                  props.selectedMonster.key === result.key ? true : false
                 }
                 onChange={() => {
                   props.setSelectedMonster(result);
@@ -65,8 +72,30 @@ function SearchMonsters(props) {
           );
         })}
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
 export default SearchMonsters;
+
+const Wrapper = styled.div`
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 16px;
+
+  form {
+    margin-bottom: 40px;
+  }
+`;
+
+const MainInput = styled.input`
+  width: 240px;
+  margin: auto;
+  padding: 8px;
+  margin-bottom: 16px;
+`;
