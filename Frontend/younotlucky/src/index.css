@@ -1,7 +1,9 @@
 body {
   margin: 0;
   font-family: "PT Serif", serif;
-  background: rgb(250, 250, 250);
+  background: #333333; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #401722, #333333);
+  background: linear-gradient(to right, #401722, #333333);
 }
 
 code {
