@@ -19,65 +19,59 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar>{/* <p>younolucky</p> */}</NavBar>
-      <Route exact path="/" component={LandingHeader} />
+      <MainWrapper>
+        <Route exact path="/" component={LandingHeader} />
 
-      <Route
-        exact
-        path="/find_monster"
-        render={props => (
-          <SearchMonsters
-            {...props}
-            selectedMonster={selectedMonster}
-            setSelectedMonster={setSelectedMonster}
-          />
-        )}
-      />
+        <Route
+          exact
+          path="/find_monster"
+          render={props => (
+            <SearchMonsters
+              {...props}
+              selectedMonster={selectedMonster}
+              setSelectedMonster={setSelectedMonster}
+            />
+          )}
+        />
 
-      <Route
-        exact
-        path="/choose_item"
-        render={props => (
-          <ChooseItem
-            {...props}
-            selectedItem={selectedItem}
-            setSelectedItem={setSelectedItem}
-            selectedMonster={selectedMonster}
-          />
-        )}
-      />
-      <Route
-        exact
-        path="/calculate_luck"
-        render={props => (
-          <CalculateLuck
-            {...props}
-            selectedMonster={selectedMonster}
-            selectedItem={selectedItem}
-          />
-        )}
-      />
-      {/* <SearchMonsters
-        selectedMonster={selectedMonster}
-        setSelectedMonster={setSelectedMonster}
-      /> */}
+        <Route
+          exact
+          path="/choose_item"
+          render={props => (
+            <ChooseItem
+              {...props}
+              selectedItem={selectedItem}
+              setSelectedItem={setSelectedItem}
+              selectedMonster={selectedMonster}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/calculate_luck"
+          render={props => (
+            <CalculateLuck
+              {...props}
+              selectedMonster={selectedMonster}
+              selectedItem={selectedItem}
+            />
+          )}
+        />
+      </MainWrapper>
     </div>
   );
 }
 
 export default App;
 
-const NavBar = styled.div`
-  display: flex;
-  align-items: start;
-  padding: 8px 24px;
-  width: 100%;
-  height: 48px;
-  background: #401722;
-  margin-bottom: 0px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-  p {
-    color: white;
-  }
+const MainWrapper = styled.div`
+  width: 90vw;
+  margin: auto;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 32px;
+  box-sizing: border-box;
+  min-height: 80vh;
+  background: white;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.18);
 `;

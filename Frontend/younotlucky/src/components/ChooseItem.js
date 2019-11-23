@@ -76,7 +76,8 @@ function ChooseItem(props) {
 export default withRouter(ChooseItem);
 
 const Wrapper = styled.div`
-  width: 400px;
+  max-width: 600px;
+  min-width: 300px;
   margin: auto;
   text-align: center;
   display: flex;

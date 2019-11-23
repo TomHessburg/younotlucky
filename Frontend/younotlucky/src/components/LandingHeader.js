@@ -11,7 +11,7 @@ export default function LandingHeader() {
     <div>
       <Wrapper>
         <h1>YOU NO LUCKY, JalYt!</h1>
-        <img style={{ width: "200px" }} src={Jad} alt="Jad" />
+        <img style={{ width: "240px" }} src={Jad} alt="Jad" />
       </Wrapper>
       <StyledPs>
         You ever wonder exactly HOW unlucky you are going 3x drop rate for that
@@ -25,10 +25,10 @@ export default function LandingHeader() {
         <Button
           size="large"
           variant="contained"
-          color="primary"
+          color="secondary"
           style={{ marginBottom: "64px" }}
         >
-          Click Here <ArrowForwardIcon style={{ marginLeft: "12px" }} />
+          Check Your Luck <ArrowForwardIcon style={{ marginLeft: "12px" }} />
         </Button>
       </Link>
     </div>
@@ -37,7 +37,7 @@ export default function LandingHeader() {
 
 const Wrapper = styled.div`
   padding: 80px 0;
-  width: 100vw;
+  width: 100%;
   heigh: 100vh;
   background: #eaeaea;
   margin-bottom: 64px;
@@ -47,6 +47,6 @@ const Wrapper = styled.div`
 `;
 
 const StyledPs = styled.p`
-  color: #a6401a;
+  color: #0c0c0c;
   font-size: 24px;
 `;

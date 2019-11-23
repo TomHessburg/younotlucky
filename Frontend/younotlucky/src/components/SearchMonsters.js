@@ -88,7 +88,8 @@ function SearchMonsters(props) {
 export default withRouter(SearchMonsters);
 
 const Wrapper = styled.div`
-  width: 400px;
+  max-width: 600px;
+  min-width: 300px;
   margin: auto;
   text-align: center;
   display: flex;
