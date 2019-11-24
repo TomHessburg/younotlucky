@@ -12,6 +12,10 @@ function SearchMonsters(props) {
   const [monster, setMonster] = useState("");
   const [results, setResults] = useState([]);
 
+  React.useEffect(() => {
+    props.setTabActive("test");
+  });
+
   useEffect(() => {
     if (monster.length > 1) {
       // e.preventDefault();
@@ -74,6 +78,7 @@ function SearchMonsters(props) {
                 }
                 onChange={() => {
                   props.setSelectedMonster(result);
+                  setMonster(result.name);
                 }}
               />
               <p>{result.key}</p>

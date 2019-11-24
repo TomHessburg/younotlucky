@@ -12,6 +12,10 @@ function ChooseItem(props) {
 
   const [filteredSearch, setFilteredSearch] = useState("");
 
+  React.useEffect(() => {
+    props.setTabActive("test");
+  });
+
   return (
     <Wrapper className="App">
       <h2>Choose an Item that this NPC Drops</h2>
@@ -60,6 +64,7 @@ function ChooseItem(props) {
                   checked={props.selectedItem === drop ? true : false}
                   onChange={() => {
                     props.setSelectedItem(drop);
+                    setFilteredSearch(drop.name);
                   }}
                 />
                 <p>

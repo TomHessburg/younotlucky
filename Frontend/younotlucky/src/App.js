@@ -4,29 +4,61 @@ import SearchMonsters from "./components/SearchMonsters";
 import LandingHeader from "./components/LandingHeader";
 import ChooseItem from "./components/ChooseItem";
 import CalculateLuck from "./components/CalculateLuck";
+import Contact from "./components/Contact";
 
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 
 import styled from "styled-components";
 
-function App() {
+function App(props) {
   const [selectedMonster, setSelectedMonster] = useState({
     name: "",
     drops: []
   });
+
+  const [tabActive, setTabActive] = useState("home");
 
   const [selectedItem, setSelectedItem] = useState({ rarity: "1/1" });
 
   return (
     <div className="App">
       <MainWrapper>
-        <TopTabRight>
+        <TopTabRight
+          onClick={e => {
+            props.history.push("/find_monster");
+          }}
+          tabActive={tabActive}
+        >
           <p>test luck</p>
         </TopTabRight>
-        <ContactTabRight>
+        <ContactTabRight
+          onClick={e => {
+            props.history.push("/contact");
+          }}
+          tabActive={tabActive}
+        >
           <p>contact</p>
         </ContactTabRight>
-        <Route exact path="/" component={LandingHeader} />
+        <HomeTabLeft
+          onClick={e => {
+            props.history.push("/");
+          }}
+          tabActive={tabActive}
+        >
+          <p>home</p>
+        </HomeTabLeft>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <LandingHeader {...props} setTabActive={setTabActive} />
+          )}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={props => <Contact {...props} setTabActive={setTabActive} />}
+        />
 
         <Route
           exact
@@ -34,6 +66,7 @@ function App() {
           render={props => (
             <SearchMonsters
               {...props}
+              setTabActive={setTabActive}
               selectedMonster={selectedMonster}
               setSelectedMonster={setSelectedMonster}
             />
@@ -46,6 +79,7 @@ function App() {
           render={props => (
             <ChooseItem
               {...props}
+              setTabActive={setTabActive}
               selectedItem={selectedItem}
               setSelectedItem={setSelectedItem}
               selectedMonster={selectedMonster}
@@ -58,6 +92,7 @@ function App() {
           render={props => (
             <CalculateLuck
               {...props}
+              setTabActive={setTabActive}
               selectedMonster={selectedMonster}
               selectedItem={selectedItem}
             />
@@ -68,7 +103,7 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
 
 const MainWrapper = styled.div`
   width: 90vw;
@@ -88,7 +123,7 @@ const TopTabRight = styled.div`
   right: 0;
   width: 120px;
   height: 32px;
-  background: white;
+  background: ${props => (props.tabActive === "test" ? "white" : "#401722")};
   border-top-right-radius: 4px;
   text-align: center;
   display: flex;
@@ -100,14 +135,14 @@ const TopTabRight = styled.div`
     font-size: 14px;
     margin: 0 auto;
     padding: 0;
-    color: #401722;
+    color: ${props => (props.tabActive === "test" ? "#401722" : "white")};
     font-style: italic;
   }
 
   :hover {
-    background: #401722;
+    background: white;
     p {
-      color: white;
+      color: #401722;
     }
   }
 `;
@@ -118,7 +153,7 @@ const ContactTabRight = styled.div`
   right: 120px;
   width: 120px;
   height: 32px;
-  background: white;
+  background: ${props => (props.tabActive === "contact" ? "white" : "#401722")};
   border-top-left-radius: 4px;
   text-align: center;
   display: flex;
@@ -131,13 +166,43 @@ const ContactTabRight = styled.div`
     font-size: 14px;
     margin: 0 auto;
     padding: 0;
-    color: #401722;
-    font-style: italic;
+    color: ${props => (props.tabActive === "contact" ? "#401722" : "white")};;
+    font-style: italic; 
   }
 
   :hover {
-    background: #401722;
+    background: white;
     p {
-      color: white;
+      color: #401722;
+    }
+`;
+
+const HomeTabLeft = styled.div`
+  position: absolute;
+  top: -32px;
+  right: 240px;
+  width: 120px;
+  height: 32px;
+  background: ${props => (props.tabActive === "home" ? "white" : "#401722")};
+  border-top-left-radius: 4px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-right: 1px solid #eaeaea;
+
+  p {
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 0;
+    color: ${props => (props.tabActive === "home" ? "#401722" : "white")};;
+    font-style: italic; 
+  }
+
+  :hover {
+    background: white;
+    p {
+      color: #401722;
     }
 `;

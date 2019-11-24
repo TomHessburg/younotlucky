@@ -10,6 +10,10 @@ function CalculateLuck(props) {
   const [trials, setTrials] = useState(0);
   const [successes, setSuccesses] = useState(1);
 
+  React.useEffect(() => {
+    props.setTabActive("test");
+  });
+
   const calculateLuck = () => {
     if (Number(trials) < 0) {
       alert("num of trials must be greater than or equal to 0");

@@ -6,7 +6,11 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 import styled from "styled-components";
 
-export default function LandingHeader() {
+export default function LandingHeader(props) {
+  React.useEffect(() => {
+    props.setTabActive("home");
+  });
+
   return (
     <div>
       <Wrapper>
@@ -24,6 +28,9 @@ export default function LandingHeader() {
           <Link
             to="/find_monster"
             style={{ textDecoration: "none", color: "white" }}
+            onClick={() => {
+              props.setTabActive("test");
+            }}
           >
             <Button
               size="medium"
