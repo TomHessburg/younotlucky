@@ -16,9 +16,7 @@ export default function LandingHeader(props) {
       <Wrapper>
         <img style={{ width: "120px" }} src={Jad} alt="Jad" />
       </Wrapper>
-      <h1>
-        You No Lucky! Find out how ridiculous that OSRS dry streak really is.
-      </h1>
+      <h1>Find out how ridiculous that OSRS dry streak really is.</h1>
       <BottomContainerWrappers>
         <ParagraphContainer>
           <p>
@@ -56,6 +54,9 @@ export default function LandingHeader(props) {
             variant="contained"
             color="secondary"
             style={{ marginBottom: "64px" }}
+            onClick={e => {
+              props.history.push("/contact");
+            }}
           >
             Contact Me <ArrowForwardIcon style={{ marginLeft: "12px" }} />
           </Button>

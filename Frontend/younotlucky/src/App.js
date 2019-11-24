@@ -18,13 +18,13 @@ function App(props) {
 
   const [tabActive, setTabActive] = useState("home");
 
-  const [selectedItem, setSelectedItem] = useState({ rarity: "1/1" });
+  const [selectedItem, setSelectedItem] = useState({ rarity: "1/1", name: "" });
 
   return (
     <div className="App">
       <MainWrapper>
         <TopTabRight
-          onClick={e => {
+          onClick={() => {
             props.history.push("/find_monster");
           }}
           tabActive={tabActive}
@@ -37,7 +37,7 @@ function App(props) {
           }}
           tabActive={tabActive}
         >
-          <p>contact</p>
+          <p>contact/info</p>
         </ContactTabRight>
         <HomeTabLeft
           onClick={e => {
@@ -154,7 +154,6 @@ const ContactTabRight = styled.div`
   width: 120px;
   height: 32px;
   background: ${props => (props.tabActive === "contact" ? "white" : "#401722")};
-  border-top-left-radius: 4px;
   text-align: center;
   display: flex;
   justify-content: center;

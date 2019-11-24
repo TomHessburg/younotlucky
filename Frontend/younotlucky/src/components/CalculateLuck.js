@@ -4,11 +4,13 @@ import Button from "@material-ui/core/Button";
 
 import styled from "styled-components";
 
+import { withRouter } from "react-router-dom";
+
 function CalculateLuck(props) {
   const { selectedMonster, selectedItem } = props;
 
   const [trials, setTrials] = useState(0);
-  const [successes, setSuccesses] = useState(1);
+  // const [successes, setSuccesses] = useState(1);
 
   React.useEffect(() => {
     props.setTabActive("test");
@@ -29,6 +31,7 @@ function CalculateLuck(props) {
       1 - Math.pow(1 - chanceInDecimal, Number(trials));
 
     alert(`${calculatedDropChange * 100} %`);
+    props.history.push("/");
   };
 
   return (
@@ -85,7 +88,7 @@ function CalculateLuck(props) {
   );
 }
 
-export default CalculateLuck;
+export default withRouter(CalculateLuck);
 
 const Wrapper = styled.div`
   max-width: 600px;
