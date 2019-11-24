@@ -22,6 +22,9 @@ function App(props) {
 
   return (
     <div className="App">
+      <LogoHeader>
+        <h2>YOU NO LUCKY</h2>
+      </LogoHeader>
       <MainWrapper>
         <TopTabRight
           onClick={() => {
@@ -204,4 +207,18 @@ const HomeTabLeft = styled.div`
     p {
       color: #401722;
     }
+`;
+
+const LogoHeader = styled.div`
+  width: 90vw;
+  margin: auto;
+  padding: 0 32px;
+  h2 {
+    margin: 0;
+    margin-top: 16px;
+    font-family: "VT323", monospace;
+    font-size: 32px;
+    text-align: left;
+    color: #ea8f1e;
+  }
 `;
