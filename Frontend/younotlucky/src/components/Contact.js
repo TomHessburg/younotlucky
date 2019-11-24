@@ -6,7 +6,7 @@ export default function Contact(props) {
   });
   return (
     <div>
-      <h3>no. :)</h3>
+      <h3>ill get back to ya...</h3>
     </div>
   );
 }
