@@ -13,10 +13,13 @@ export default function LandingHeader(props) {
 
   return (
     <div>
-      <Wrapper>
+      {/* <Wrapper>
         <img style={{ width: "120px" }} src={Jad} alt="Jad" />
-      </Wrapper>
+      </Wrapper> */}
       <h1>Find out how ridiculous that OSRS dry streak really is.</h1>
+      <Wrapper>
+        <img style={{ width: "200px" }} src={Jad} alt="Jad" />
+      </Wrapper>
       <BottomContainerWrappers>
         <ParagraphContainer>
           <p>
@@ -67,20 +70,22 @@ export default function LandingHeader(props) {
 }
 
 const Wrapper = styled.div`
-  padding: 40px 0;
+  padding: 16px 0;
   width: 100%;
-  heigh: 100vh;
-  background: #eaeaea;
-  margin-bottom: 64px;
-  h1 {
-    margin-top: 0;
-  }
+  margin: 0 auto;
 `;
 
 const ParagraphContainer = styled.div`
   max-width: 450px;
-  margin: auto;
+  min-height: 350px;
   padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  button {
+    width: 100%;
+  }
 
   p {
     font-size: 20px;
@@ -88,15 +93,20 @@ const ParagraphContainer = styled.div`
     max-width: 600px;
     text-align: left;
   }
+
+  @media (max-width: 900px) {
+    min-height: 150px;
+    max-width: 600px;
+  }
 `;
 
 const BottomContainerWrappers = styled.div`
   display: flex;
-  align-items: center;
-  justify-conent: center:
-  flex-wrap: nowrap;
-  margin-top: 64px;
+  align-items: baseline;
+  justify-content: center;
+  align-items: baseline;
   @media (max-width: 900px) {
     flex-direction: column;
+    align-items: center;
   }
 `;

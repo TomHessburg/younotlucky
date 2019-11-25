@@ -162,7 +162,6 @@ const ContactTabRight = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-right: 1px solid #eaeaea;
 
   p {
     font-size: 14px;
@@ -192,7 +191,6 @@ const HomeTabLeft = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-right: 1px solid #eaeaea;
 
   p {
     font-size: 14px;
